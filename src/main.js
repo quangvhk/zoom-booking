@@ -9,9 +9,13 @@ import App from '@/App.vue'
 import router from '@/router'
 import { store } from '@/store'
 import VuetifyConfirm from 'vuetify-confirm'
+import Default from '@/components/layouts/Default'
+import Auth from '@/components/layouts/Auth'
 
 Vue.config.productionTip = false
 Vue.use(VuetifyConfirm, { vuetify })
+Vue.component('default-layout', Default)
+Vue.component('auth-layout', Auth)
 
 const app = new Vue({
   vuetify,

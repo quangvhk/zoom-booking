@@ -15,14 +15,14 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: `${this.$t('verify.TITLE')} - %s`
+      titleTemplate: `${this.$t('verify.TITLE')} - %s`,
     }
   },
   methods: {
-    ...mapActions(['sendVerify'])
+    ...mapActions(['sendVerify']),
   },
   async mounted() {
     await this.sendVerify(this.$route.params.id)
-  }
+  },
 }
 </script>

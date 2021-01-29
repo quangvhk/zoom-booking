@@ -34,18 +34,18 @@ export default {
       },
       set(value) {
         this.$store.commit(types.SHOW_ERROR, value)
-      }
+      },
     },
     error() {
       return formatErrorMessages('errors', this.$store.state.error.errorMessage)
-    }
+    },
   },
   watch: {
     error() {
       setTimeout(() => {
         this.showErrorMessage = this.error !== null
       }, 100)
-    }
-  }
+    },
+  },
 }
 </script>

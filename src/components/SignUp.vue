@@ -89,7 +89,7 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: `${this.$t('signup.TITLE')} - %s`
+      titleTemplate: `${this.$t('signup.TITLE')} - %s`,
     }
   },
   data() {
@@ -97,7 +97,7 @@ export default {
       name: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
     }
   },
   methods: {
@@ -106,14 +106,14 @@ export default {
       await this.userSignUp({
         name: this.name,
         email: this.email,
-        password: this.password
+        password: this.password,
       })
-    }
+    },
   },
   created() {
     if (this.$store.state.auth.isTokenSet) {
       router.push({ name: 'home' })
     }
-  }
+  },
 }
 </script>

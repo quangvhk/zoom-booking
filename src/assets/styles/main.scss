@@ -1,0 +1,9 @@
+/*SETTINGS*/
+@import "settings/_setting.variable";
+@import "settings/_setting.color";
+@import "settings/_setting.mixin";
+
+/*GERNERIC*/
+@import "generics/_generic.box-sizing";
+@import "generics/_generic.normalize";
+@import "generics/_generic.reset";

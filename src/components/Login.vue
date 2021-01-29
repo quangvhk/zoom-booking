@@ -64,13 +64,13 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: `${this.$t('login.TITLE')} - %s`
+      titleTemplate: `${this.$t('login.TITLE')} - %s`,
     }
   },
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
     }
   },
   methods: {
@@ -78,14 +78,14 @@ export default {
     async submit() {
       await this.userLogin({
         email: this.email,
-        password: this.password
+        password: this.password,
       })
-    }
+    },
   },
   created() {
     if (this.$store.state.auth.isTokenSet) {
       router.push({ name: 'home' })
     }
-  }
+  },
 }
 </script>

@@ -1,6 +1,6 @@
-<template #activator="{ on }">
+<template v-slot:activator="{ on }">
   <div>
-    <v-app-bar app>
+    <v-app-bar dense app>
       <span>
         <v-app-bar-nav-icon
           class="hidden-md-and-down"
@@ -31,24 +31,13 @@
       </div>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn
-          text
-          v-for="(item, index) in menuItems"
-          :key="index"
-          :to="{ name: item.link }"
-          exact
-          :class="['hidden-sm-and-down', item.class]"
-        >
-          <v-icon>{{ item.icon }}</v-icon>
-          &nbsp;{{ item.title }}
-        </v-btn>
-        <v-list-item class="hidden-sm-and-down">
-          <v-icon>mdi-weather-sunny</v-icon>
-          <v-list-item-action>
-            <v-switch v-model="isDark" inset></v-switch>
-          </v-list-item-action>
-          <v-icon class="pl-2">mdi-weather-night</v-icon>
-        </v-list-item>
+        <!--        <v-list-item class="hidden-sm-and-down">-->
+        <!--          <v-icon>mdi-weather-sunny</v-icon>-->
+        <!--          <v-list-item-action>-->
+        <!--            <v-switch v-model="isDark" inset></v-switch>-->
+        <!--          </v-list-item-action>-->
+        <!--          <v-icon class="pl-2">mdi-weather-night</v-icon>-->
+        <!--        </v-list-item>-->
         <v-menu v-if="admin" offset-y>
           <template v-slot:activator="{ on }">
             <v-btn v-on="on" text class="btnAdmin hidden-sm-and-down">

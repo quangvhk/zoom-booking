@@ -4,6 +4,7 @@ export default [
     name: 'profile',
     meta: {
       requiresAuth: true,
+      layout: 'default',
     },
     component: () =>
       import(/* webpackChunkName: "profile" */ '@/components/Profile.vue'),

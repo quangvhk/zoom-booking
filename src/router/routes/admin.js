@@ -4,6 +4,7 @@ export default [
     name: 'admin-cities',
     meta: {
       requiresAuth: true,
+      layout: 'default',
     },
     component: () =>
       import(
@@ -15,6 +16,7 @@ export default [
     name: 'admin-users',
     meta: {
       requiresAuth: true,
+      layout: 'default',
     },
     component: () =>
       import(

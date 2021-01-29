@@ -31,26 +31,26 @@ export default {
       },
       set(value) {
         this.$store.commit(types.SHOW_SUCCESS, value)
-      }
+      },
     },
     successMessage() {
       if (this.$store.state.success.successMessageParams) {
         return this.$i18n.t(this.$store.state.success.successMessage, [
-          ...this.$store.state.success.successMessageParams
+          ...this.$store.state.success.successMessageParams,
         ])
       }
       return this.$i18n.t(this.$store.state.success.successMessage)
     },
     successMessageTimeout() {
       return this.$store.state.success.successMessageTimeout
-    }
+    },
   },
   watch: {
     successMessage() {
       setTimeout(() => {
         this.showSuccessMessage = this.successMessage !== ''
       }, 100)
-    }
-  }
+    },
+  },
 }
 </script>

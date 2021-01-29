@@ -12,7 +12,7 @@
       class="elevation-1"
       :footer-props="{
         'items-per-page-text': $t('dataTable.ROWS_PER_PAGE'),
-        'items-per-page-options': [5, 10, 25]
+        'items-per-page-options': [5, 10, 25],
       }"
     >
       <template v-slot:top>
@@ -334,7 +334,7 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: `${this.$t('users.TITLE')} - %s`
+      titleTemplate: `${this.$t('users.TITLE')} - %s`,
     }
   },
   data() {
@@ -347,14 +347,14 @@ export default {
       pagination: {},
       editedItem: {},
       defaultItem: {},
-      fieldsToSearch: ['name', 'email', 'role', 'city', 'country', 'phone']
+      fieldsToSearch: ['name', 'email', 'role', 'city', 'country', 'phone'],
     }
   },
   computed: {
     roles() {
       return [
         { name: this.$t('roles.ADMIN'), value: 'admin' },
-        { name: this.$t('roles.USER'), value: 'user' }
+        { name: this.$t('roles.USER'), value: 'user' },
       ]
     },
     allCities() {
@@ -371,62 +371,62 @@ export default {
           text: this.$i18n.t('dataTable.ACTIONS'),
           value: '_id',
           sortable: false,
-          width: 100
+          width: 100,
         },
         {
           text: this.$i18n.t('users.headers.NAME'),
           align: 'left',
           sortable: true,
-          value: 'name'
+          value: 'name',
         },
         {
           text: this.$i18n.t('users.headers.EMAIL'),
           align: 'left',
           sortable: true,
-          value: 'email'
+          value: 'email',
         },
         {
           text: this.$i18n.t('users.headers.ROLE'),
           align: 'left',
           sortable: true,
-          value: 'role'
+          value: 'role',
         },
         {
           text: this.$i18n.t('users.headers.VERIFIED'),
           align: 'left',
           sortable: true,
-          value: 'verified'
+          value: 'verified',
         },
         {
           text: this.$i18n.t('users.headers.CITY'),
           align: 'left',
           sortable: true,
-          value: 'city'
+          value: 'city',
         },
         {
           text: this.$i18n.t('users.headers.COUNTRY'),
           align: 'left',
           sortable: true,
-          value: 'country'
+          value: 'country',
         },
         {
           text: this.$i18n.t('users.headers.PHONE'),
           align: 'left',
           sortable: true,
-          value: 'phone'
+          value: 'phone',
         },
         {
           text: this.$i18n.t('common.CREATED'),
           align: 'left',
           sortable: true,
-          value: 'createdAt'
+          value: 'createdAt',
         },
         {
           text: this.$i18n.t('common.UPDATED'),
           align: 'left',
           sortable: true,
-          value: 'updatedAt'
-        }
+          value: 'updatedAt',
+        },
       ]
     },
     items() {
@@ -434,7 +434,7 @@ export default {
     },
     totalItems() {
       return this.$store.state.adminUsers.totalUsers
-    }
+    },
   },
   watch: {
     dialog(value) {
@@ -445,7 +445,7 @@ export default {
         try {
           this.dataTableLoading = true
           await this.getUsers(
-            buildPayloadPagination(this.pagination, this.buildSearch())
+            buildPayloadPagination(this.pagination, this.buildSearch()),
           )
           this.dataTableLoading = false
           // eslint-disable-next-line no-unused-vars
@@ -453,14 +453,14 @@ export default {
           this.dataTableLoading = false
         }
       },
-      deep: true
+      deep: true,
     },
     search() {
       clearTimeout(this.delayTimer)
       this.delayTimer = setTimeout(() => {
         this.doSearch()
       }, 400)
-    }
+    },
   },
   methods: {
     ...mapActions([
@@ -468,7 +468,7 @@ export default {
       'getUsers',
       'editUser',
       'saveUser',
-      'deleteUser'
+      'deleteUser',
     ]),
     getFormat(date) {
       window.__localeId__ = this.$store.getters.locale
@@ -486,7 +486,7 @@ export default {
       try {
         this.dataTableLoading = true
         await this.getUsers(
-          buildPayloadPagination(this.pagination, this.buildSearch())
+          buildPayloadPagination(this.pagination, this.buildSearch()),
         )
         this.dataTableLoading = false
         // eslint-disable-next-line no-unused-vars
@@ -512,14 +512,14 @@ export default {
             buttonTrueText: this.$t('common.DELETE'),
             buttonFalseText: this.$t('common.CANCEL'),
             buttonTrueColor: 'red lighten3',
-            buttonFalseColor: 'yellow'
-          }
+            buttonFalseColor: 'yellow',
+          },
         )
         if (response) {
           this.dataTableLoading = true
           await this.deleteUser(item._id)
           await this.getUsers(
-            buildPayloadPagination(this.pagination, this.buildSearch())
+            buildPayloadPagination(this.pagination, this.buildSearch()),
           )
           this.dataTableLoading = false
         }
@@ -541,7 +541,7 @@ export default {
         if (this.editedItem._id) {
           await this.editUser(this.editedItem)
           await this.getUsers(
-            buildPayloadPagination(this.pagination, this.buildSearch())
+            buildPayloadPagination(this.pagination, this.buildSearch()),
           )
           this.dataTableLoading = false
         } else {
@@ -553,10 +553,10 @@ export default {
             role: this.editedItem.role,
             phone: this.editedItem.phone,
             city: this.editedItem.city,
-            country: this.editedItem.country
+            country: this.editedItem.country,
           })
           await this.getUsers(
-            buildPayloadPagination(this.pagination, this.buildSearch())
+            buildPayloadPagination(this.pagination, this.buildSearch()),
           )
           this.dataTableLoading = false
         }
@@ -567,11 +567,11 @@ export default {
         this.dataTableLoading = false
         this.close()
       }
-    }
+    },
   },
   async mounted() {
     await this.getAllCities()
-  }
+  },
 }
 </script>
 

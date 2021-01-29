@@ -46,29 +46,29 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: `${this.$t('forgotPassword.TITLE')} - %s`
+      titleTemplate: `${this.$t('forgotPassword.TITLE')} - %s`,
     }
   },
   data() {
     return {
-      email: ''
+      email: '',
     }
   },
   methods: {
     ...mapActions(['forgotPassword']),
     async submit() {
       await this.forgotPassword({
-        email: this.email
+        email: this.email,
       })
     },
     goBack() {
       router.go(-1)
-    }
+    },
   },
   created() {
     if (this.$store.state.auth.isTokenSet) {
       router.push({ name: 'home' })
     }
-  }
+  },
 }
 </script>
