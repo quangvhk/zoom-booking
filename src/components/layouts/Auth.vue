@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main class="text-center">
+    <v-main class="text-center login__screen light-blue lighten-2">
       <loading />
       <v-container fluid>
         <transition name="fade" mode="out-in">

@@ -1,8 +1,7 @@
 <template>
   <v-container fluid>
-    <v-layout row wrap>
+    <v-layout row wrap class="login__box white">
       <Heading :title="$t('login.TITLE')" />
-      <Description :description="$t('login.DESCRIPTION')" />
       <v-flex xs12 sm6 offset-sm3>
         <ValidationObserver v-slot="{ handleSubmit }">
           <form @submit.prevent="handleSubmit(submit)">
